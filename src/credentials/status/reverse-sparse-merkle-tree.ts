@@ -165,7 +165,7 @@ export class RHSResolver implements CredentialStatusResolver {
       }
       latestState = latestStateInfo.state;
     } catch (e) {
-      const errMsg = (e as { reason: string })?.reason ?? (e as Error).message ?? (e as string);
+      const errMsg = String(e);
       if (!errMsg.includes(VerifiableConstants.ERRORS.IDENTITY_DOES_NOT_EXIST)) {
         throw e;
       }
